@@ -72,7 +72,7 @@ const ArrowVegaLiteChart: FC<Props> = ({
 }) => {
   const {
     expanded: isFullScreen,
-    height,
+    height: fullScreenHeight,
     width: fullScreenWidth,
     expand,
     collapse,
@@ -108,7 +108,7 @@ const ArrowVegaLiteChart: FC<Props> = ({
     inputElement,
     // Facet charts enter a loop when using the width from the StyledVegaLiteChartContainer.
     isFacet ? (fullScreenWidth ?? 0) : containerWidth,
-    containerHeight,
+    isFacet ? (fullScreenHeight ?? 0) : containerHeight,
     useContainerWidth,
     useContainerHeight
   )
@@ -135,10 +135,17 @@ const ArrowVegaLiteChart: FC<Props> = ({
     }
 
     return finalizeView
-    // We can't use width in this dependency array because it causes facet charts to enter a loop.
+    // We can't use containerWidth/containerHeight in this dependency array because it causes facet charts to enter a loop.
     // TODO(lawilby): Do we need width/height in this dependency array? It seems any changes
     // Are the changes in the spec enough?
-  }, [createView, finalizeView, spec, fullScreenWidth, containerHeight, containerRef])
+  }, [
+    createView,
+    finalizeView,
+    spec,
+    fullScreenWidth,
+    fullScreenHeight,
+    containerRef,
+  ])
 
   // The references to data and datasets will always change each rerun
   // because the forward message always produces new references, so
