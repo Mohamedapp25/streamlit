@@ -63,12 +63,20 @@ st.line_chart(df)
 st.line_chart(df, x="a")
 st.line_chart(df, y="a")
 st.line_chart(df, y=["a", "b"])
-st.line_chart(df, x="a", y="b", height=500, width=300, use_container_width=False)
+st.line_chart(df, x="a", y="b", height=500, width=300)
 st.line_chart(df, x="b", y="a")
 st.line_chart(df, x="a", y=["b", "c"])
 st.line_chart(utc_df)
 st.line_chart(color_df, x="a", y="b", color="e")
 st.line_chart(df, x_label="X Axis Label", y_label="Y Axis Label")
+
+st.write("width=content")
+st.line_chart(df, width="content")
+
+st.write("height=stretch")
+with st.container(border=True, key="test_height_stretch", height=500):
+    st.line_chart(df, height="stretch")
+
 
 # Test that add_rows maintains original styling params:
 # color, width, height, use_container_width

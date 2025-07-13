@@ -15,8 +15,9 @@
 from playwright.sync_api import Page, expect
 
 from e2e_playwright.conftest import ImageCompareFunction, wait_for_app_run
+from e2e_playwright.shared.app_utils import get_element_by_key
 
-TOTAL_LINE_CHARTS = 12
+TOTAL_LINE_CHARTS = 14
 
 
 def test_line_chart_rendering(app: Page, assert_snapshot: ImageCompareFunction):
@@ -32,6 +33,27 @@ def test_line_chart_rendering(app: Page, assert_snapshot: ImageCompareFunction):
         # Skip the add_rows_chart test
         if i != 11:
             assert_snapshot(element, name=f"st_line_chart-{i}")
+
+
+def test_line_chart_width_height(app: Page, assert_snapshot: ImageCompareFunction):
+    """Test that st.line_chart renders correctly with different width and height."""
+    content_width_chart = app.get_by_test_id("stVegaLiteChart").nth(13)
+
+    # make sure the canvas is rendered.
+    expect(content_width_chart.locator("canvas")).to_have_count(1)
+    assert_snapshot(
+        content_width_chart,
+        name="st_line_chart-width_content",
+    )
+
+    stretch_height_chart_container = get_element_by_key(app, "test_height_stretch")
+
+    # make sure the canvas is rendered.
+    expect(stretch_height_chart_container.locator("canvas")).to_have_count(1)
+    assert_snapshot(
+        stretch_height_chart_container,
+        name="st_line_chart-height_stretch",
+    )
 
 
 def test_themed_line_chart_rendering(

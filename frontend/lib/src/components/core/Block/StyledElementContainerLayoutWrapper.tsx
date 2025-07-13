@@ -57,10 +57,13 @@ export const StyledElementContainerLayoutWrapper: FC<
     } else if (
       node.element.type === "iframe" ||
       node.element.type === "deckGlJsonChart" ||
-      node.element.type === "arrowDataFrame"
+      node.element.type === "arrowDataFrame" ||
+      node.element.type === "arrowVegaLiteChart"
     ) {
       // TODO(lwilby): Some elements need overflow to be visible in webkit. Will investigate
       // if we can remove this custom handling in future layouts work.
+      // Also, the arrowVegaLiteChart needs overflow to be visible due to the full screen button.
+      // When portals can be introduced, we can remove this custom handling for elements using the full screen wrapper.
       return {
         overflow: "visible",
       }
