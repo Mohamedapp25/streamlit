@@ -784,7 +784,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
@@ -1049,7 +1050,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
@@ -1338,7 +1340,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
@@ -1573,7 +1576,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
@@ -1778,7 +1782,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
@@ -1979,7 +1984,8 @@ class VegaChartsMixin:
                     "For `use_container_width=True`, use `width='stretch'`. "
                     "For `use_container_width=False`, use `width='content'`.",
                     include_st_prefix=False,
-                )
+                ),
+                show_in_browser=False,
             )
             width = "stretch" if use_container_width else "content"
 
