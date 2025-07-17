@@ -692,7 +692,7 @@ function DataFrame({
         }
       }
     }, 1)
-  }, [resizableSize, numRows, glideColumns])
+  }, [resizableSize.width, resizableSize.height, numRows, glideColumns])
 
   // Hide the column visibility menu if all columns are visible:
   useEffect(() => {
@@ -859,7 +859,7 @@ function DataFrame({
         minHeight={minHeight}
         maxHeight={maxHeight}
         minWidth={minWidth}
-        maxWidth={maxWidth}
+        maxWidth={undefined}
         size={resizableSize}
         enable={{
           top: false,
